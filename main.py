@@ -1,4 +1,5 @@
 # main
+import sqlite3
 from cliente import Cliente
 from funcionario import Funcionario
 from historico import Historico
@@ -6,6 +7,7 @@ from produto import Produto
 from registros import Registros
 from venda import Venda
 
+banco = sqlite3.connect('banco.db')
 
 funcionarios = []
 clientes = []
