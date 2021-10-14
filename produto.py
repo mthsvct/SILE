@@ -2,7 +2,7 @@ class Produto():
 
 	__slots__ = ['_nome', '_preco', '_qnt', '_historico']
 
-	def __init__(self, nome, preco, qnt):
+	def __init__(self, nome, preco, qnt=1):
 		self._nome = nome 
 		self._preco = preco
 		self._qnt = qnt 
@@ -19,6 +19,10 @@ class Produto():
 	@property
 	def qnt(self):
 		return self._qnt
+
+	@property
+	def historico(self):
+		return self._historico
 
 	# ----------------------------------- #
 
