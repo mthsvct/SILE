@@ -116,7 +116,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="pushButton_SAIR">
     <property name="geometry">
      <rect>
       <x>290</x>
@@ -137,7 +137,7 @@
      <string>Sair</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
       <x>170</x>

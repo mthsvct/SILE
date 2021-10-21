@@ -2,7 +2,7 @@ class Funcionario:
 	
 	__slots__ = ['_pessoa', '_categoria', '_login']
 
-	def __init__(self, pessoa, categoria, login):
+	def __init__(self, pessoa, categoria, senha):
 		self._pessoa = pessoa
 		self._categoria = categoria
 		self._login = login

@@ -25,10 +25,6 @@ class Cliente:
 		return self._pessoa.telefone
 
 	@property
-	def endereco(self):
-		return self._pessoa.endereco
-
-	@property
 	def historico(self):
 		return self._historico
 

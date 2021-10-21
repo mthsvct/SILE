@@ -1,12 +1,19 @@
+from historico import Historico
+
 class Produto():
 
-	__slots__ = ['_nome', '_preco', '_qnt', '_historico']
+	__slots__ = ['_cod','_nome', '_preco', '_qnt', '_historico']
 
-	def __init__(self, nome, preco, qnt=1):
+	def __init__(self, cod, nome, preco, qnt=1):
+		self._cod = cod
 		self._nome = nome 
 		self._preco = preco
 		self._qnt = qnt 
-		self._historico = historico
+		self._historico = Historico()
+
+	@property
+	def cod(self):
+		return self._cod
 
 	@property
 	def nome(self):
@@ -25,6 +32,10 @@ class Produto():
 		return self._historico
 
 	# ----------------------------------- #
+
+	@cod.setter
+	def cod(self, cod):
+		self._cod = cod
 
 	@nome.setter
 	def nome(self, nome):
