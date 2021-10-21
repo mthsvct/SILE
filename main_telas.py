@@ -11,10 +11,8 @@ from PyQt5.QtWidgets import QMessageBox, QMainWindow, QApplication, QFileDialog
 from PyQt5.QtCore import QCoreApplication
 
 from cliente import Cliente
-from endereco import Endereco
 from funcionario import Funcionario
 from historico import Historico
-from login import Login
 from pessoa import Pessoa
 from produto import Produto
 from registros import Registros
@@ -28,6 +26,7 @@ from tela_produtos_menu import Tela_produtos_menu
 
 # Opcoes Funcionarios
 from tela_cadastro_funcionario import Tela_cadastro_funcionario
+from tela_apagar_funcionario import Tela_apagar_funcionario
 
 
 class Ui_Main(QtWidgets.QWidget):
@@ -44,6 +43,7 @@ class Ui_Main(QtWidgets.QWidget):
         self.stack2 = QtWidgets.QMainWindow()
         self.stack3 = QtWidgets.QMainWindow()
         self.stack4 = QtWidgets.QMainWindow()
+        self.stack5 = QtWidgets.QMainWindow()
 
         # Criação do objeto para cada tela
         self.tela_login = Tela_login()
@@ -61,12 +61,17 @@ class Ui_Main(QtWidgets.QWidget):
         self.tela_cadastro_funcionario  = Tela_cadastro_funcionario()
         self.tela_cadastro_funcionario.setupUi(self.stack4)
 
+        self.tela_apagar_funcionario  = Tela_apagar_funcionario()
+        self.tela_apagar_funcionario.setupUi(self.stack5)
+
+
         #
         self.QtStack.addWidget(self.stack0)
         self.QtStack.addWidget(self.stack1)
         self.QtStack.addWidget(self.stack2)
         self.QtStack.addWidget(self.stack3)
         self.QtStack.addWidget(self.stack4)
+        self.QtStack.addWidget(self.stack5)
 
 
 

@@ -1,11 +1,10 @@
 class Funcionario:
 	
-	__slots__ = ['_pessoa', '_categoria', '_login']
+	__slots__ = ['_pessoa', '_senha']
 
-	def __init__(self, pessoa, categoria, senha):
+	def __init__(self, pessoa, senha):
 		self._pessoa = pessoa
-		self._categoria = categoria
-		self._login = login
+		self._senha = senha
 
 	@property
 	def pessoa(self):
@@ -29,19 +28,11 @@ class Funcionario:
 
 	@property
 	def endereco(self):
-		return self._pessoa.endereco
-
-	@property
-	def categoria(self):
-		return self._categoria
-
-	@property
-	def login(self):
-		return self._login
+		return self._pessoa.enderecoa
 
 	@property
 	def senha(self):
-		return self._login.senha
+		return self._senha
 
 	# ----------------------- #
 
@@ -49,10 +40,3 @@ class Funcionario:
 	def pessoa(self, pessoa):
 		self._pessoa = pessoa
 
-	@categoria.setter
-	def categoria(self, categoria):
-		self._categoria = categoria
-
-	@login.setter
-	def login(self, login):
-		self._login = login
