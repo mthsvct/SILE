@@ -1,5 +1,6 @@
 from pessoa import Pessoa
 from cliente import Cliente
+from produto import Produto
 from funcionario import Funcionario
 
 class Registros():
@@ -104,7 +105,29 @@ class Registros():
 
 		return logado
 
-
-		
-
     # ----------------------------------- #
+
+    # Funções referentes a gestão de produtos;
+
+    # Função que busca um produto na lista.
+	def buscaPROD(self, codigo):
+		encontrado = None
+		for i in self.produtos:
+			if i.cod == codigo:
+				encontrado = i
+		return encontrado
+
+    # Função que cadastra um novo produto a lista de produtos
+	def cadastraPROD(self, codigo, nome, preco, qnt):
+		if '' in [codigo, nome, preco, qnt]:
+			# Algum dos valores não foi preenchido.
+			mensagem = "Todos os valores devem ser preenchidos!"
+		else:
+			if self.buscaPROD(codigo) != None:
+				# Existe um produto já cadastrado com o mesmo código
+				mensagem = "O código informado já foi cadastrado!"
+			else:
+				# Produto pode ser cadastrado sem problemas.
+				self.produtos.append(Produto(codigo, nome, preco, qnt))
+				mensagem = "Cadastro de produto realizado com sucesso!"
+		return mensagem
