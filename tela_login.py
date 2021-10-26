@@ -18,33 +18,39 @@ class Tela_login(object):
         MainWindow.setTabShape(QtWidgets.QTabWidget.Rounded)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+
         self.titulo = QtWidgets.QLabel(self.centralwidget)
         self.titulo.setGeometry(QtCore.QRect(280, 60, 91, 51))
         font = QtGui.QFont()
         font.setPointSize(24)
         self.titulo.setFont(font)
         self.titulo.setObjectName("titulo")
+
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(130, 185, 71, 16))
+        self.label_2.setGeometry(QtCore.QRect(140, 185, 71, 16))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.label_2.setFont(font)
-        self.label_2.setObjectName("label_2")
+        self.label_2.setObjectName("label_2") # CPF
+
+        self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit.setGeometry(QtCore.QRect(200, 180, 281, 23))
+        self.lineEdit.setObjectName("lineEdit")
+
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
         self.label_3.setGeometry(QtCore.QRect(140, 225, 71, 16))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.label_3.setFont(font)
-        self.label_3.setObjectName("label_3")
-        self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(200, 180, 281, 23))
-        self.lineEdit.setObjectName("lineEdit")
+        self.label_3.setObjectName("label_3") # SENHA
+
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_2.setGeometry(QtCore.QRect(200, 220, 281, 23))
         self.lineEdit_2.setText("")
         self.lineEdit_2.setEchoMode(QtWidgets.QLineEdit.Password)
         self.lineEdit_2.setDragEnabled(False)
         self.lineEdit_2.setObjectName("lineEdit_2")
+
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(239, 310, 91, 31))
         font = QtGui.QFont()
@@ -75,7 +81,7 @@ class Tela_login(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.titulo.setText(_translate("MainWindow", "Login"))
-        self.label_2.setText(_translate("MainWindow", "Usuario:"))
+        self.label_2.setText(_translate("MainWindow", "CPF:"))
         self.label_3.setText(_translate("MainWindow", "Senha:"))
         self.pushButton.setText(_translate("MainWindow", "Entrar"))
         self.pushButton_2.setText(_translate("MainWindow", "Cadastrar"))

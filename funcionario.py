@@ -2,7 +2,7 @@ class Funcionario:
 	
 	__slots__ = ['_pessoa', '_senha']
 
-	def __init__(self, pessoa, senha):
+	def __init__(self, pessoa=None, senha=None):
 		self._pessoa = pessoa
 		self._senha = senha
 
@@ -40,3 +40,6 @@ class Funcionario:
 	def pessoa(self, pessoa):
 		self._pessoa = pessoa
 
+	# ----------------------- #
+
+	

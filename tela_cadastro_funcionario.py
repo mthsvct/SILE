@@ -10,6 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+ajuste = -30
 
 class Tela_cadastro_funcionario(object):
     def setupUi(self, MainWindow):
@@ -66,35 +67,42 @@ class Tela_cadastro_funcionario(object):
         self.lineEdit_4 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_4.setGeometry(QtCore.QRect(270, 220, 281, 23))
         self.lineEdit_4.setObjectName("lineEdit_4")
+        
+        '''
         self.lineEdit_5 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_5.setGeometry(QtCore.QRect(270, 250, 281, 23))
         self.lineEdit_5.setObjectName("lineEdit_5")
+        
         self.label_6 = QtWidgets.QLabel(self.centralwidget)
         self.label_6.setGeometry(QtCore.QRect(170, 250, 91, 20))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.label_6.setFont(font)
         self.label_6.setObjectName("label_6")
+        '''
+
         self.label_7 = QtWidgets.QLabel(self.centralwidget)
-        self.label_7.setGeometry(QtCore.QRect(200, 280, 61, 20))
+        self.label_7.setGeometry(QtCore.QRect(200, 280+ajuste, 61, 20))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.label_7.setFont(font)
         self.label_7.setObjectName("label_7")
+        
         self.lineEdit_6 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_6.setGeometry(QtCore.QRect(270, 280, 281, 23))
+        self.lineEdit_6.setGeometry(QtCore.QRect(270, 280+ajuste, 281, 23))
         self.lineEdit_6.setText("")
         self.lineEdit_6.setEchoMode(QtWidgets.QLineEdit.PasswordEchoOnEdit)
         self.lineEdit_6.setDragEnabled(False)
         self.lineEdit_6.setObjectName("lineEdit_6")
+
         self.lineEdit_7 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_7.setGeometry(QtCore.QRect(270, 310, 281, 23))
+        self.lineEdit_7.setGeometry(QtCore.QRect(270, 310+ajuste, 281, 23))
         self.lineEdit_7.setText("")
         self.lineEdit_7.setEchoMode(QtWidgets.QLineEdit.PasswordEchoOnEdit)
         self.lineEdit_7.setDragEnabled(False)
         self.lineEdit_7.setObjectName("lineEdit_7")
         self.label_8 = QtWidgets.QLabel(self.centralwidget)
-        self.label_8.setGeometry(QtCore.QRect(80, 310, 181, 20))
+        self.label_8.setGeometry(QtCore.QRect(90, 310+ajuste, 181, 20))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.label_8.setFont(font)
@@ -127,7 +135,7 @@ class Tela_cadastro_funcionario(object):
         self.label_3.setText(_translate("MainWindow", "CPF:"))
         self.label_4.setText(_translate("MainWindow", "Email:"))
         self.label_5.setText(_translate("MainWindow", "Telefone:"))
-        self.label_6.setText(_translate("MainWindow", "Categoria:"))
+        # self.label_6.setText(_translate("MainWindow", "Categoria:"))
         self.label_7.setText(_translate("MainWindow", "Senha:"))
         self.label_8.setText(_translate("MainWindow", "Confimaçao da senha:"))
         self.voltar.setText(_translate("MainWindow", "Voltar"))
