@@ -29,7 +29,7 @@ from tela_cadastro_funcionario import Tela_cadastro_funcionario
 
 # Opcoes Produtos
 from tela_cadastro_produto import Tela_cadastro_produto
-
+from tela_apagar_produto import Tela_apagar_produto
 
 nome_auto = "Matheus"
 cpf_auto = "123"
@@ -70,13 +70,17 @@ class Ui_Main(QtWidgets.QWidget):
         self.tela_cadastro_produto = Tela_cadastro_produto()
         self.tela_cadastro_produto.setupUi(self.stack4)
 
+        self.tela_apagar_produto = Tela_apagar_produto()
+        self.tela_apagar_produto.setupUi(self.stack5)
+
+
         #
         self.QtStack.addWidget(self.stack0)
         self.QtStack.addWidget(self.stack1)
         self.QtStack.addWidget(self.stack2)
         self.QtStack.addWidget(self.stack3)
         self.QtStack.addWidget(self.stack4)
-        #self.QtStack.addWidget(self.stack5)
+        self.QtStack.addWidget(self.stack5)
 
 
 
@@ -99,6 +103,7 @@ class Main(QMainWindow, Ui_Main):
         self.tela_cadastro_funcionario.voltar.clicked.connect(self.abrir_tela_login)
         self.tela_produtos_menu.voltar.clicked.connect(self.abrir_tela_inicial)
         self.tela_cadastro_produto.voltar.clicked.connect(self.abrir_tela_produtos_menu)
+        self.tela_apagar_produto.voltar.clicked.connect(self.abrir_tela_produtos_menu)
 
         # Tela de Login:
         self.tela_login.pushButton.clicked.connect(self.botaoENTRAR)
@@ -114,9 +119,14 @@ class Main(QMainWindow, Ui_Main):
         
         # Tela PRODUTOS menu:
         self.tela_produtos_menu.pushButton.clicked.connect(self.abrir_tela_cadastro_produto) # cadastrar um novo produto
-    
+        self.tela_produtos_menu.pushButton_2.clicked.connect(self.abrir_tela_apagar_produto) # apagar um produto
+
         # Tela de cadastro de Produto:
         self.tela_cadastro_produto.cadastrar.clicked.connect(self.cadastrar_novo_PROD)
+
+        # Tela de apagar um produto:
+        self.tela_apagar_produto.apagar.clicked.connect(self.apagar_PROD)
+
 
     def botaoSAIR(self):
         self.usuario_logado = None
@@ -140,6 +150,8 @@ class Main(QMainWindow, Ui_Main):
     def abrir_tela_cadastro_produto(self):
         self.QtStack.setCurrentIndex(4)
 
+    def abrir_tela_apagar_produto(self):
+        self.QtStack.setCurrentIndex(5)
 
 
     def botaoENTRAR(self):
@@ -186,6 +198,12 @@ class Main(QMainWindow, Ui_Main):
         self.tela_cadastro_produto.lineEdit_2.setText('')
         self.tela_cadastro_produto.lineEdit_3.setText('')
         self.tela_cadastro_produto.lineEdit_4.setText('')
+
+    def apagar_PROD(self):
+        codigo = self.tela_apagar_produto.lineEdit.text()
+        mensagem = self.cadastros.apagaPROD(codigo)
+        QMessageBox.information(None,'POOII',f'{mensagem}')
+        self.tela_apagar_produto.lineEdit.setText('')
 
 
 if __name__ == '__main__':

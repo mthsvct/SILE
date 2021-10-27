@@ -131,3 +131,21 @@ class Registros():
 				self.produtos.append(Produto(codigo, nome, preco, qnt))
 				mensagem = "Cadastro de produto realizado com sucesso!"
 		return mensagem
+
+
+	def apagaPROD(self, codigo):
+
+		if '' in [codigo]:
+			# Algum dos valores não foi preenchido.
+			mensagem = "Todos os valores devem ser preenchidos!"
+		else:
+			p = self.buscaPROD(codigo)
+			if p == None:
+				# Produto não encontrado.
+				mensagem = "O produto que deseja remover não foi encontrado!"
+			else:
+				print(self.produtos)
+				self.produtos.remove(p)
+				mensagem = "Produto removido com sucesso!"
+				print(self.produtos)
+		return mensagem
