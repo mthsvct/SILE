@@ -71,7 +71,6 @@ class Registros():
 					mensagem = "Cadastro de funcionário realizado com sucesso!"
 		return mensagem
 
-
 	# Retorna uma lista contendo:
 		# Retorna o usuário caso seja digitado os dados corretamente, caso contrário retorna retorna None;
 		# Junto com o usuário ou None é retornado uma mensagem.
@@ -117,7 +116,7 @@ class Registros():
 				encontrado = i
 		return encontrado
 
-    # Função que cadastra um novo produto a lista de produtos
+    # Função que cadastra um novo produto a lista de produtos.
 	def cadastraPROD(self, codigo, nome, preco, qnt):
 		if '' in [codigo, nome, preco, qnt]:
 			# Algum dos valores não foi preenchido.
@@ -132,7 +131,7 @@ class Registros():
 				mensagem = "Cadastro de produto realizado com sucesso!"
 		return mensagem
 
-
+	# Função que apaga um produto da lista de produtos.
 	def apagaPROD(self, codigo):
 
 		if '' in [codigo]:
@@ -149,3 +148,67 @@ class Registros():
 				mensagem = "Produto removido com sucesso!"
 				print(self.produtos)
 		return mensagem
+
+	# -------------------------------------------------- #
+
+	# Função que busca um cliente.
+	def buscaCLIENTE(self, cpf):
+		encontrado = None
+		for i in self.clientes:
+			if( i.cpf == cpf ):
+				encontrado = i
+		return encontrado
+
+	# Função que cadastra um novo cliente à lista de clientes
+	def cadastraCLIENTE(self, nome, cpf, email, tel):
+		if '' in [nome, cpf, email, tel]:
+			# Algum dos valores não foi preenchido.
+			mensagem = "Todos os valores devem ser preenchidos!"
+		else:
+			if self.buscaCLIENTE(cpf) != None:
+				# Existe um funcionario com esse mesmo CPF
+				mensagem = "O CPF informado já foi cadastrado!"
+			else:
+				p = Pessoa(nome, cpf, email, tel)
+				c = Cliente(p)
+				self.clientes.append(c)
+				mensagem = "Cadastro de cliente realizado com sucesso!"
+		return mensagem
+
+	# Função que apaga o registro de um cliente da lista de clientes
+	def apagaCLIENTE(self, cpf):
+		if cpf == '':
+			mensagem = "Todos os valores devem ser preenchidos!"
+		else:
+			# Cpf foi digitado.
+			c = self.buscaCLIENTE(cpf)
+			if c == None:
+				# Cliente não encontrado.
+				mensagem = "O cliente buscado não foi encontrado!"
+			else:
+				print(len(self.clientes))
+				self.clientes.remove(c)
+				mensagem = "O registro do cliente foi apagado com sucesso!"
+				print(len(self.clientes))
+		return mensagem
+
+
+	def editaCLIENTE_busca(self, cpf):
+		retorno = []
+		if cpf == '':
+			mensagem = "Todos os valores devem ser preenchidos!"
+		else:
+			# CPF foi digitado.
+			c = self.buscaCLIENTE(cpf)
+			if c == None:
+				mensagem = "O cliente buscado pelo o CPF não foi encontrado!"
+			else:
+				mensagem = "Cliente encontrado!"
+				retorno.append(c)
+
+		if len(retorno) == 0:
+			retorno.append(None)
+
+		retorno.append(mensagem)
+
+		return retorno
